@@ -155,6 +155,8 @@ parfor scale_k = 2:5
     end
 end
 
+%% save
+save('./data/booted_short_v5.mat', 'booted')
 
 %% prepare boot 24
 
@@ -270,6 +272,9 @@ for j = 1:n_boot
 
     booted(j) = subsub_max_spec;
 end
+
+%% save
+save('./data/booted_24_v5.mat', 'booted')
 
 %% block boostrap 
 function boot = get_boot(x)

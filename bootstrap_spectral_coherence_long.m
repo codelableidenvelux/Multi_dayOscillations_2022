@@ -155,6 +155,9 @@ for scale_k = 1:n_clusters
     end
 end
 
+%% save
+save('./data/booted_long_v5.mat', 'booted')
+
 %% block boostrap 
 function boot = get_boot(x)
 ntimes = length(x);

@@ -154,6 +154,9 @@ for scale_k = 1:5
     end
 end
 
+%% save
+save('./data/full_coherence_short_v5.mat', 'full_coherence')
+
 %% 24 hours
 
 a = mean(padded_ape, [1, 3, 4]);
@@ -268,3 +271,6 @@ for IDXA = 1:length(sub_idx_valid_for_scale)
         
     end
 end
+
+%% save
+save('./data/full_coherence_24_v5.mat', 'full_coherence_24')

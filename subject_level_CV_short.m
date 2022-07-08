@@ -1,4 +1,4 @@
-function sub_lvl_CV_short_v5(IDX)
+function subject_level_CV_short(IDX)
 % Subject level cross-validation
 % for finding the best rank for NNMF
 % 

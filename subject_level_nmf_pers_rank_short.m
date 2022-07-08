@@ -5,9 +5,9 @@
 %
 % Enea Ceolini, Leiden University
 
-load('ape_padded_and_non_padded_v5.mat')
-load('ForCluster.mat', 'Period')
-load('perferred_ranks_short_v5.mat')
+load('./data/ape_padded_and_non_padded_v5.mat')
+load('./data/ForCluster.mat', 'Period')
+load('./data/perferred_ranks_short_v5.mat')
 %% select tensor to use
 active_tensor = padded_ape;
 
@@ -48,9 +48,16 @@ myfunc = @(X,K)(kmeans(X, K, 'Replicates', 10));
 myfunc2 = @(X,K)(mdwtcluster(X, 'maxclust', K, 'wname', 'db4').IdxCLU(:,1));
 eva_single = evalclusters(zscore(all_W_singles')', myfunc2, 'gap', 'klist', klist);
 
+Gap = eva_single.CriterionValues;
+S = eva_single.SE;
+right_part  = Gap(2:end) - S(2:end);
+left_part = Gap(1:end-1) + S(1:end-1);
+cc = left_part >= right_part;
+
+opt_k = find(cc == 1, 1, 'first');
 
 %%
-K = 5; %eva.OptimalK;
+K = opt_k; %eva.OptimalK;
 
 S = mdwtcluster(zscore(all_W_singles')', 'maxclust', K, 'wname', 'db4');
 

@@ -1,4 +1,4 @@
-function generate_best_D_short_v5(IDX)
+function generate_best_D_short(IDX)
 
 % Generate the best set of meta-behaviours/meta-rhytms for each subject
 % Given the best rank coming from the cross-validation, we do the following
@@ -22,6 +22,7 @@ addpath('../spams-matlab-v2.6/build/');
 
 %%
 
+n_scales = 397;
 b_beg = 190;
 b_end = 336;
 

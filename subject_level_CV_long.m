@@ -1,4 +1,4 @@
-function sub_lvl_CV_long_v5(IDX)
+function subject_level_CV_long(IDX)
 % Subject level cross-validation
 % for finding the best rank for NNMF
 % 
@@ -6,7 +6,7 @@ function sub_lvl_CV_long_v5(IDX)
 fprintf("Received %d\n", IDX)
 
 % subject level cross-validation
-load('ape_padded_and_non_padded_v5.mat', 'ape_jids')
+load('./data/ape_padded_and_non_padded_v5.mat', 'ape_jids')
 
 % replace the following two paths with your SPAMS installation paths
 addpath('../spams-matlab-v2.6/');

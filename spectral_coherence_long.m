@@ -156,3 +156,6 @@ for scale_k = 1:n_clusters
         end
     end
 end
+
+%% save
+save('./data/full_coherence_long_v5.mat', 'full_coherence')

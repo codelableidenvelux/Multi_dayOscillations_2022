@@ -63,10 +63,17 @@ klist = 2:20;
 myfunc2 = @(X,K)(mdwtcluster(X, 'maxclust', K).IdxCLU(:,1));
 eva_single = evalclusters(zscore(all_W_singles')', myfunc2, 'gap', 'klist', klist);
 
+Gap = eva_single.CriterionValues;
+S = eva_single.SE;
+right_part  = Gap(2:end) - S(2:end);
+left_part = Gap(1:end-1) + S(1:end-1);
+cc = left_part >= right_part;
+
+opt_k = find(cc == 1, 1, 'first');
 
 %% Cluster proto-scales
 
-K = 7; %eva_single.OptimalK;
+K = opt_k; %eva_single.OptimalK;
 
 S = mdwtcluster(zscore(all_W_singles')', 'maxclust', K, 'wname', 'db4');
 

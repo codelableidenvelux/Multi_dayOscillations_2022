@@ -1,4 +1,4 @@
-function generate_best_D_long_v5(IDX)
+function generate_best_D_long(IDX)
 % Generate the best set of meta-behaviours/meta-rhytms for each subject
 % Given the best rank coming from the cross-validation, we do the following
 % to find the more stable decomposition:
@@ -12,8 +12,8 @@ function generate_best_D_long_v5(IDX)
 % Enea Ceolini, Leiden University
 
 % load subject level cross-validation
-load('ape_padded_and_non_padded_v5.mat', 'ape_jids')
-load('perferred_ranks_long_v5.mat', 'preferred_ranks')
+load('./data/ape_padded_and_non_padded_v5.mat', 'ape_jids')
+load('./data/perferred_ranks_long_v5.mat', 'preferred_ranks')
 
 % replace the following two paths with your SPAMS installation paths
 addpath('../spams-matlab-v2.6/');
